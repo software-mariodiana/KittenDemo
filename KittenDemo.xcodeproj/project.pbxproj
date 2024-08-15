@@ -1,0 +1,410 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AC24E4FA2C5AC95F00FC432D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24E4F92C5AC95F00FC432D /* AppDelegate.m */; };
+		AC24E4FD2C5AC95F00FC432D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24E4FC2C5AC95F00FC432D /* SceneDelegate.m */; };
+		AC24E5002C5AC95F00FC432D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24E4FF2C5AC95F00FC432D /* ViewController.m */; };
+		AC24E5032C5AC95F00FC432D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AC24E5022C5AC95F00FC432D /* Base */; };
+		AC24E5052C5AC96000FC432D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC24E5042C5AC96000FC432D /* Assets.xcassets */; };
+		AC24E5082C5AC96000FC432D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AC24E5072C5AC96000FC432D /* Base */; };
+		AC24E50B2C5AC96000FC432D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24E50A2C5AC96000FC432D /* main.m */; };
+		AC24E5142C5ACAF000FC432D /* KittenViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24E5132C5ACAF000FC432D /* KittenViewModel.m */; };
+		AC24E5172C5AD85500FC432D /* KittenHTTPStore.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24E5162C5AD85500FC432D /* KittenHTTPStore.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AC0D4C972C60209E00C542F1 /* KittenStoring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KittenStoring.h; sourceTree = "<group>"; };
+		AC24E4F52C5AC95F00FC432D /* KittenDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KittenDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC24E4F82C5AC95F00FC432D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AC24E4F92C5AC95F00FC432D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AC24E4FB2C5AC95F00FC432D /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		AC24E4FC2C5AC95F00FC432D /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		AC24E4FE2C5AC95F00FC432D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AC24E4FF2C5AC95F00FC432D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AC24E5022C5AC95F00FC432D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AC24E5042C5AC96000FC432D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC24E5072C5AC96000FC432D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AC24E5092C5AC96000FC432D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC24E50A2C5AC96000FC432D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AC24E5112C5AC9FD00FC432D /* Kitten.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Kitten.h; sourceTree = "<group>"; };
+		AC24E5122C5ACAF000FC432D /* KittenViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KittenViewModel.h; sourceTree = "<group>"; };
+		AC24E5132C5ACAF000FC432D /* KittenViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KittenViewModel.m; sourceTree = "<group>"; };
+		AC24E5152C5AD85500FC432D /* KittenHTTPStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KittenHTTPStore.h; sourceTree = "<group>"; };
+		AC24E5162C5AD85500FC432D /* KittenHTTPStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KittenHTTPStore.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC24E4F22C5AC95F00FC432D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AC24E4EC2C5AC95F00FC432D = {
+			isa = PBXGroup;
+			children = (
+				AC24E4F72C5AC95F00FC432D /* KittenDemo */,
+				AC24E4F62C5AC95F00FC432D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AC24E4F62C5AC95F00FC432D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC24E4F52C5AC95F00FC432D /* KittenDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC24E4F72C5AC95F00FC432D /* KittenDemo */ = {
+			isa = PBXGroup;
+			children = (
+				AC24E4F82C5AC95F00FC432D /* AppDelegate.h */,
+				AC24E4F92C5AC95F00FC432D /* AppDelegate.m */,
+				AC24E4FB2C5AC95F00FC432D /* SceneDelegate.h */,
+				AC24E4FC2C5AC95F00FC432D /* SceneDelegate.m */,
+				AC24E4FE2C5AC95F00FC432D /* ViewController.h */,
+				AC24E4FF2C5AC95F00FC432D /* ViewController.m */,
+				AC24E5012C5AC95F00FC432D /* Main.storyboard */,
+				AC24E5042C5AC96000FC432D /* Assets.xcassets */,
+				AC24E5062C5AC96000FC432D /* LaunchScreen.storyboard */,
+				AC24E5092C5AC96000FC432D /* Info.plist */,
+				AC24E50A2C5AC96000FC432D /* main.m */,
+				AC24E5112C5AC9FD00FC432D /* Kitten.h */,
+				AC24E5122C5ACAF000FC432D /* KittenViewModel.h */,
+				AC24E5132C5ACAF000FC432D /* KittenViewModel.m */,
+				AC0D4C972C60209E00C542F1 /* KittenStoring.h */,
+				AC24E5152C5AD85500FC432D /* KittenHTTPStore.h */,
+				AC24E5162C5AD85500FC432D /* KittenHTTPStore.m */,
+			);
+			path = KittenDemo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC24E4F42C5AC95F00FC432D /* KittenDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC24E50E2C5AC96000FC432D /* Build configuration list for PBXNativeTarget "KittenDemo" */;
+			buildPhases = (
+				AC24E4F12C5AC95F00FC432D /* Sources */,
+				AC24E4F22C5AC95F00FC432D /* Frameworks */,
+				AC24E4F32C5AC95F00FC432D /* Resources */,
+				AC7FBDBA2C5D877B00A80142 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KittenDemo;
+			productName = KittenDemo;
+			productReference = AC24E4F52C5AC95F00FC432D /* KittenDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC24E4ED2C5AC95F00FC432D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					AC24E4F42C5AC95F00FC432D = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = AC24E4F02C5AC95F00FC432D /* Build configuration list for PBXProject "KittenDemo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AC24E4EC2C5AC95F00FC432D;
+			productRefGroup = AC24E4F62C5AC95F00FC432D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC24E4F42C5AC95F00FC432D /* KittenDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC24E4F32C5AC95F00FC432D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC24E5052C5AC96000FC432D /* Assets.xcassets in Resources */,
+				AC24E5082C5AC96000FC432D /* Base in Resources */,
+				AC24E5032C5AC95F00FC432D /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AC7FBDBA2C5D877B00A80142 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\napi_key=\"$SRCROOT/api.key\"\n\n# Check if the api.key file exists\nif [ ! -f \"$api_key\" ]; then\n    echo 'error: Missing api.key file'\n    open 'https://thecatapi.com'\n    echo \"error: Get an API access key from <https://thecatapi.com>, then create a new file at $api_key that contains the access token.\"\n    exit 1\nfi\n\n# Read the API key from the file\ncatApiToken=$(cat \"$api_key\")\n\n# Check if the API key is non-empty\nif [ -n \"$catApiToken\" ]; then\n    plist_path=\"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\n    echo \"Info.plist path: $plist_path\"\n    \n    # Check if Info.plist exists in the build directory\n    if [ ! -f \"$plist_path\" ]; then\n        echo \"error: Info.plist file does not exist at path: $plist_path\"\n        exit 1\n    fi\n    \n    # Update the Info.plist file with the API token\n    plutil -replace MDXCatAPIToken -string \"$catApiToken\" \"$plist_path\"\nelse\n    echo 'error: Missing Cat API token in the api.key file'\n    open 'https://thecatapi.com'\n    echo \"error: Get an API access key from <https://thecatapi.com>, then create a new file at $api_key that contains the access token.\"\n    exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC24E4F12C5AC95F00FC432D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC24E5142C5ACAF000FC432D /* KittenViewModel.m in Sources */,
+				AC24E5002C5AC95F00FC432D /* ViewController.m in Sources */,
+				AC24E4FA2C5AC95F00FC432D /* AppDelegate.m in Sources */,
+				AC24E50B2C5AC96000FC432D /* main.m in Sources */,
+				AC24E5172C5AD85500FC432D /* KittenHTTPStore.m in Sources */,
+				AC24E4FD2C5AC95F00FC432D /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AC24E5012C5AC95F00FC432D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC24E5022C5AC95F00FC432D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AC24E5062C5AC96000FC432D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC24E5072C5AC96000FC432D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AC24E50C2C5AC96000FC432D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AC24E50D2C5AC96000FC432D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AC24E50F2C5AC96000FC432D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M2KR5TEJPW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KittenDemo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mariodiana.KittenDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AC24E5102C5AC96000FC432D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = M2KR5TEJPW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KittenDemo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mariodiana.KittenDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC24E4F02C5AC95F00FC432D /* Build configuration list for PBXProject "KittenDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC24E50C2C5AC96000FC432D /* Debug */,
+				AC24E50D2C5AC96000FC432D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC24E50E2C5AC96000FC432D /* Build configuration list for PBXNativeTarget "KittenDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC24E50F2C5AC96000FC432D /* Debug */,
+				AC24E5102C5AC96000FC432D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC24E4ED2C5AC95F00FC432D /* Project object */;
+}

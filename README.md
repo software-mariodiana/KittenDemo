@@ -1,0 +1,73 @@
+# KittenDemo
+
+KittenDemo is a simple iOS demo project written in Objective-C, designed to illustrate how to make network calls to a REST server using the `NSURLSession` with the delegate pattern. This project showcases an "old-school" OOP method of performing network operations, following a variant of the MVC pattern: MVC-Store. Additionally, it introduces a ViewModel object to simplify multithreaded programming through the use of KVC/KVO. The project aims for loose coupling among objects.
+
+## Features
+
+- **Network Requests using Delegate Pattern**: The project demonstrates how to use `NSURLSession` with the delegate pattern instead of blocks, which is a more classic OOP approach.
+- **MVC-Store Pattern**: The data fetching logic is encapsulated in a "Store" class (`KittenHTTPStore`), adhering to a variant of the traditional MVC pattern.
+- **ViewModel for KVC/KVO**: The ViewModel object is used to manage the data and is observed by the view controller using Key-Value Coding (KVC) and Key-Value Observing (KVO). This design helps in managing asynchronous updates to the UI when the data is fetched in a background thread.
+- **UIKit and Storyboard UI**: The UI is built using UIKit and Storyboards, providing a clean and simple interface to fetch and display cat images from a third-party API.
+
+## Screenshots
+
+<p style="border: 1px solid #000; display: inline-block;">
+    <img src="Main-UI-screenshot.png" alt="KittenDemo UI">
+</p>
+
+## Source Code Highlights
+
+- **ViewController.h/m**: The main view controller that handles user interactions and updates the UI based on the data fetched from the `KittenHTTPStore`.
+- **KittenHTTPStore.h/m**: The "Store" class responsible for making network requests to the third-party cat API and returning the results via a delegate.
+- **Main.storyboard**: Contains the UI layout for the app, including a UIImageView to display the fetched cat image and a UIButton to trigger the fetch.
+
+## API Key
+
+The project requires an API key to access the third-party service that provides cat images. The API key must be placed in a file named `api.key` in the root directory of the project. The key will be read at runtime and used to authenticate requests to the API.
+
+```
+KittenDemo/
+├── KittenDemo/
+├── KittenDemo.xcodeproj
+├── Mainn-UI-screenshot.png
+├── README.md
+├── LICENSE.md
+├── api.key
+```
+
+For information on obtaining an API key, see: [The Cat API: Cats as a service.](https://thecatapi.com)
+
+## How It Works
+
+1. **Fetching the Kitten Image**: When the user taps the "Fetch kitten" button, the `ViewController` triggers a network request via the `KittenHTTPStore`.
+2. **Network Call with Delegate Pattern**: The `KittenHTTPStore` uses the `NSURLSession` with a delegate to make the network request. The delegate methods handle the response and error cases.
+3. **Updating the UI with KVO**: The fetched image URL is updated in the ViewModel, which is observed by the `ViewController`. The UI is then updated on the main thread with the new kitten image.
+
+## Getting Started
+
+### Prerequisites
+
+- Xcode (latest version)
+- An API key for the third-party cat image service.
+
+### Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/KittenDemo.git
+   cd KittenDemo
+   ```
+
+2. Create a file named `api.key` in the root directory of the project and paste your API key into this file.
+
+3. Open the project in Xcode.
+
+4. Build and run the project on your iOS simulator or device.
+
+## License
+
+This project is licensed under the BSD-3-Clause - see the [LICENSE.md](LICENSE.md) file for details.
+
+## Authors
+
+* **[Mario Diana](https://github.com/software-mariodiana)** - *Initial work*
