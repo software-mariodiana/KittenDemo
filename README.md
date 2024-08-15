@@ -11,9 +11,7 @@ KittenDemo is a simple iOS demo project written in Objective-C, designed to illu
 
 ## Screenshots
 
-<p style="border: 1px solid #000; display: inline-block;">
-    <img src="Main-UI-screenshot.png" alt="KittenDemo UI">
-</p>
+<img src="Main-UI-screenshot.png" alt="KittenDemo UI" style="border: 1px solid #000; padding: 5px;">
 
 ## Source Code Highlights
 
