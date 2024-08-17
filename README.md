@@ -27,7 +27,7 @@ The project requires an API key to access the third-party service that provides 
 KittenDemo/
 ├── KittenDemo/
 ├── KittenDemo.xcodeproj
-├── Mainn-UI-screenshot.png
+├── Main-UI-screenshot.png
 ├── README.md
 ├── LICENSE.md
 ├── api.key
