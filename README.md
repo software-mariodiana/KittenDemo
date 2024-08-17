@@ -1,6 +1,6 @@
 # KittenDemo
 
-KittenDemo is a simple iOS demo project written in Objective-C, designed to illustrate how to make network calls to a REST server using the `NSURLSession` with the delegate pattern. This project showcases an "old-school" OOP method of performing network operations, following a variant of the MVC pattern: MVC-Store. Additionally, it introduces a ViewModel object to simplify multithreaded programming through the use of KVC/KVO. The project aims for loose coupling among objects.
+KittenDemo is a simple iOS demo project written in Objective-C, designed to illustrate how to make network calls to a REST server using the `NSURLSession` with the delegate pattern. This project showcases an "old-school" OOP method of performing network operations, following a variant of the MVC pattern: MVC-Store. Additionally, it introduces a ViewModel object to simplify multithreaded programming through the use of KVC/KVO. The project aims for loose coupling among objects. Any over-engineering is meant as a guide to implementing more complicated applications.
 
 ## Features
 
