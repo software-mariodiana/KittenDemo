@@ -6,12 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Kitten.h"
+#import "KittenUpdating.h"
 
 extern NSString* const KittenStoreFetchErrorNotification;
 
 @protocol KittenStoring <NSObject>
-- (void)fetchImageForKitten:(id<Kitten>)kitten;
+- (void)fetchImageWithUpdater:(id<KittenUpdating>)updater;
 @end
 
 /**

@@ -24,16 +24,16 @@ NSString* const CatAPISearchResponseJSONKey = @"url";
 
 @interface KittenStoreSessionDelegate : NSObject <NSURLSessionDataDelegate>
 @property (nonatomic, strong) NSMutableData* data;
-@property (nonatomic, weak) id<Kitten> kitten;
+@property (nonatomic, weak) id<KittenUpdating> updater;
 @end
 
 @implementation KittenStoreSessionDelegate
 
 static NSString* const KittenImageDataFetchTaskDescription = @"KittenImageDataFetchTaskDescription";
 
-- (void)resetWithKitten:(id<Kitten>)kitten
+- (void)resetWithUpdater:(id<KittenUpdating>)updater
 {
-    self.kitten = kitten;
+    self.updater = updater;
     self.data = [NSMutableData data];
 }
 
@@ -41,7 +41,7 @@ static NSString* const KittenImageDataFetchTaskDescription = @"KittenImageDataFe
 - (void)updateKittenWithImage:(UIImage *)image
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[self kitten] setImage:image];
+        [[self updater] updateKitten:image];
     });
 }
 
@@ -205,10 +205,10 @@ typedef NSURLSession* (*SessionFactoryType)(NSString *apiKey);
 }
 
 
-- (void)fetchImageForKitten:(id<Kitten>)kitten
+- (void)fetchImageWithUpdater:(id<KittenUpdating>)updater
 {
     id delegate = [[self session] delegate];
-    [delegate resetWithKitten:kitten];
+    [delegate resetWithUpdater:updater];
     NSURL* url = [NSURL URLWithString:CatAPISearchURI];
     NSURLSessionDataTask* task = [[self session] dataTaskWithURL:url];
     [task resume];
