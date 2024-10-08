@@ -34,18 +34,14 @@
 // POSSIBILITY OF SUCH DAMAGE.
 //
 
-#import <UIKit/UIKit.h>
-
-@interface MDXDeviceNotch : NSObject
-/** Disallow default initializer. */
-- (instancetype)init __attribute__((unavailable("not available")));
-/** Singleton instance. */
-+ (instancetype)sharedInstance;
-/** Return YES if device has notch; NO, if not. */
-- (BOOL)hasDeviceNotch;
-@end
+#import <Foundation/Foundation.h>
 
 /**
  * Return YES if iOS device has notch; NO, if not.
  */
 BOOL MDXHasDeviceNotch(void);
+
+/**
+ * Return YES if iOS device has Home Button; NO, if not.
+ */
+BOOL MDXHasHomeButton(void);

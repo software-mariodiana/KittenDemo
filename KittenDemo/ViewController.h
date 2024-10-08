@@ -6,7 +6,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "KittenUpdating.h"
 
-@interface ViewController : UIViewController <KittenUpdating>
+@interface ViewController : UIViewController
 @end

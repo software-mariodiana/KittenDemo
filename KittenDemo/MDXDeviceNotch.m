@@ -35,6 +35,7 @@
 //
 
 #import "MDXDeviceNotch.h"
+#import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, MDXDeviceNotchState) {
     MDXDeviceNotchStateUndetermined = -1,
@@ -43,10 +44,11 @@ typedef NS_ENUM(NSInteger, MDXDeviceNotchState) {
 };
 
 
-@interface MDXDeviceNotch ()
+@interface MDXDeviceNotch : NSObject
 @property (nonatomic, assign) MDXDeviceNotchState deviceState;
++ (instancetype)sharedInstance;
+- (BOOL)hasDeviceNotch;
 @end
-
 
 @implementation MDXDeviceNotch
 
@@ -75,19 +77,6 @@ typedef NS_ENUM(NSInteger, MDXDeviceNotchState) {
 }
 
 
-- (BOOL)hasDeviceNotch
-{
-    // This never changes, so we need do it only once.
-    if ([self deviceState] == MDXDeviceNotchStateUndetermined) {
-        UIWindow* window = [self keyWindow];
-        self.deviceState =
-            [window safeAreaInsets].bottom > 0.0 ? MDXDeviceNotchStateTrue : MDXDeviceNotchStateFalse;
-    }
-    
-    return [self deviceState] == MDXDeviceNotchStateTrue;
-}
-
-
 - (UIWindow *)keyWindow
 {
     // Apple made things more difficult with this UIScene stuff.
@@ -108,10 +97,30 @@ typedef NS_ENUM(NSInteger, MDXDeviceNotchState) {
     return [[windows filteredArrayUsingPredicate:filter] lastObject];
 }
 
+
+- (BOOL)hasDeviceNotch
+{
+    // This never changes, so we need do it only once.
+    if ([self deviceState] == MDXDeviceNotchStateUndetermined) {
+        UIWindow* window = [self keyWindow];
+        self.deviceState =
+            [window safeAreaInsets].bottom > 0.0 ? MDXDeviceNotchStateTrue : MDXDeviceNotchStateFalse;
+    }
+    
+    return [self deviceState] == MDXDeviceNotchStateTrue;
+}
+
 @end
 
+#pragma mark - Public functions
 
 BOOL MDXHasDeviceNotch(void)
 {
     return [[MDXDeviceNotch sharedInstance] hasDeviceNotch];
+}
+
+
+BOOL MDXHasHomeButton(void)
+{
+    return !MDXHasDeviceNotch();
 }

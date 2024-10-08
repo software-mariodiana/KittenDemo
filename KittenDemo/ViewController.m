@@ -6,10 +6,11 @@
 //
 
 #import "ViewController.h"
-#import "KittenStoring.h"
 #import "MDXDeviceNotch.h"
+#import "KittenStoring.h"
+#import "KittenUpdating.h"
 
-@interface ViewController ()
+@interface ViewController () <KittenUpdating>
 @property (nonatomic, weak) IBOutlet UIImageView* imageView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *button;
