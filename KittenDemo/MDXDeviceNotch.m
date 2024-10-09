@@ -1,38 +1,24 @@
 //
 // MDXDeviceNotch.m
 //
-// BSD 3-Clause License
+// ISC License
 //
 // Copyright (c) 2024, Mario Diana
-// All rights reserved.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions
-// are met:
+// Permission to use, copy, modify, and/or distribute this software for any
+// purpose with or without fee is hereby granted, provided that the above
+// copyright notice and this permission notice appear in all copies.
 //
-// 1. Redistributions of source code must retain the above copyright notice,
-//    this list of conditions and the following disclaimer.
+// THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+// WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+// MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+// ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+// WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+// ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+// OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 //
-// 2. Redistributions in binary form must reproduce the above copyright
-//    notice, this list of conditions and the following disclaimer in the
-//    documentation and/or other materials provided with the distribution.
-//
-// 3. Neither the name of Mario Diana nor the names of its contributors may be
-//    used to endorse or promote products derived from this software without
-//    specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
-// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
-// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
-// POSSIBILITY OF SUCH DAMAGE.
-//
+
+// https://github.com/software-mariodiana/MDXDeviceNotch
 
 #import "MDXDeviceNotch.h"
 #import <UIKit/UIKit.h>
@@ -84,8 +70,11 @@ typedef NS_ENUM(NSInteger, MDXDeviceNotchState) {
     NSMutableArray* windows = [NSMutableArray array];
     
     for (id aScene in scenes) {
-        for (id aWindow in [aScene windows]) {
-            [windows addObject:aWindow];
+        // "Typically, UIKit creates a UIWindowScene object instead of a UIScene object..."
+        if ([aScene respondsToSelector:@selector(windows)]) {
+            for (id aWindow in [aScene windows]) {
+                [windows addObject:aWindow];
+            }
         }
     }
     
@@ -94,15 +83,40 @@ typedef NS_ENUM(NSInteger, MDXDeviceNotchState) {
     }];
     
     // Reportedly, using firstObject leads to inconsistent results.
-    return [[windows filteredArrayUsingPredicate:filter] lastObject];
+    UIWindow* keyWindow = [[windows filteredArrayUsingPredicate:filter] lastObject];
+    
+    if (!keyWindow) {
+        NSLog(@"WARNING (MDXDeviceNotch): Unable to determine key window!");
+    }
+    
+    return keyWindow;
 }
 
 
 - (BOOL)hasDeviceNotch
 {
-    // This never changes, so we need do it only once.
+    // This never changes, so we need do it only once if we're successful.
     if ([self deviceState] == MDXDeviceNotchStateUndetermined) {
+        // iPads do not have a device notch.
+        if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)) {
+            self.deviceState = MDXDeviceNotchStateFalse;
+            return MDXDeviceNotchStateFalse;
+        }
+        
         UIWindow* window = [self keyWindow];
+        
+        if (!window) {
+            NSLog(
+                  @"WARNING (MDXDeviceNotch): Unable to determine presence of device notch."
+                  " Presence of device notch can be detected only after layout of key window."
+                  " This is a programmer error!"
+                  " Returning: NO for presence of device notch."
+                  );
+            
+            // Assuming NO should result in a graceful fail.
+            return NO;
+        }
+        
         self.deviceState =
             [window safeAreaInsets].bottom > 0.0 ? MDXDeviceNotchStateTrue : MDXDeviceNotchStateFalse;
     }
@@ -112,15 +126,9 @@ typedef NS_ENUM(NSInteger, MDXDeviceNotchState) {
 
 @end
 
-#pragma mark - Public functions
+#pragma mark - Public function
 
 BOOL MDXHasDeviceNotch(void)
 {
     return [[MDXDeviceNotch sharedInstance] hasDeviceNotch];
-}
-
-
-BOOL MDXHasHomeButton(void)
-{
-    return !MDXHasDeviceNotch();
 }
