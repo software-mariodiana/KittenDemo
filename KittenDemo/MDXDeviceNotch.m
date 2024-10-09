@@ -29,41 +29,11 @@ typedef NS_ENUM(NSInteger, MDXDeviceNotchState) {
     MDXDeviceNotchStateTrue = 1
 };
 
+static MDXDeviceNotchState MDXDeviceNotchValue = MDXDeviceNotchStateUndetermined;
 
-@interface MDXDeviceNotch : NSObject
-@property (nonatomic, assign) MDXDeviceNotchState deviceState;
-+ (instancetype)sharedInstance;
-- (BOOL)hasDeviceNotch;
-@end
+#pragma mark - Private function
 
-@implementation MDXDeviceNotch
-
-+ (instancetype)sharedInstance
-{
-    static MDXDeviceNotch* sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [[self alloc] initSharedInstance];
-    });
-    
-    return sharedInstance;
-}
-
-
-- (instancetype)initSharedInstance
-{
-    self = [super init];
-    
-    if (self) {
-        _deviceState = MDXDeviceNotchStateUndetermined;
-    }
-    
-    return self;
-}
-
-
-- (UIWindow *)keyWindow
+UIWindow* MDXKeyWindow(void)
 {
     // Apple made things more difficult with this UIScene stuff.
     NSArray* scenes = [[[UIApplication sharedApplication] connectedScenes] allObjects];
@@ -92,18 +62,19 @@ typedef NS_ENUM(NSInteger, MDXDeviceNotchState) {
     return keyWindow;
 }
 
+#pragma mark - Public function
 
-- (BOOL)hasDeviceNotch
+BOOL MDXHasDeviceNotch(void)
 {
     // This never changes, so we need do it only once if we're successful.
-    if ([self deviceState] == MDXDeviceNotchStateUndetermined) {
+    if (MDXDeviceNotchValue == MDXDeviceNotchStateUndetermined) {
         // iPads do not have a device notch.
         if (([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)) {
-            self.deviceState = MDXDeviceNotchStateFalse;
+            MDXDeviceNotchValue = MDXDeviceNotchStateFalse;
             return MDXDeviceNotchStateFalse;
         }
         
-        UIWindow* window = [self keyWindow];
+        UIWindow* window = MDXKeyWindow();
         
         if (!window) {
             NSLog(
@@ -117,18 +88,9 @@ typedef NS_ENUM(NSInteger, MDXDeviceNotchState) {
             return NO;
         }
         
-        self.deviceState =
+        MDXDeviceNotchValue =
             [window safeAreaInsets].bottom > 0.0 ? MDXDeviceNotchStateTrue : MDXDeviceNotchStateFalse;
     }
     
-    return [self deviceState] == MDXDeviceNotchStateTrue;
-}
-
-@end
-
-#pragma mark - Public function
-
-BOOL MDXHasDeviceNotch(void)
-{
-    return [[MDXDeviceNotch sharedInstance] hasDeviceNotch];
+    return MDXDeviceNotchValue == MDXDeviceNotchStateTrue;
 }
