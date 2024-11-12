@@ -6,7 +6,6 @@
 //
 
 #import "ViewController.h"
-#import "MDXDeviceNotch.h"
 #import "KittenStoring.h"
 #import "KittenUpdating.h"
 
@@ -42,9 +41,30 @@
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        self.deviceNotch = MDXHasDeviceNotch();
-        self.bottomButtonConstraint.constant = ([self hasDeviceNotch]) ? 0.0 : 20.0;
+        UIWindow* window = [self keyWindow];
+        
+        if (window) {
+            CGFloat padding = [window safeAreaInsets].bottom;
+            self.bottomButtonConstraint.constant = (padding > 0.0) ? 0.0 : 20.0;
+        }
     });
+}
+
+
+- (UIWindow *)keyWindow
+{
+    UIWindow* keyWindow = nil;
+
+    for (id aScene in [[UIApplication sharedApplication] connectedScenes]) {
+        UIWindow* window = [[aScene delegate] window];
+        
+        if ([window isKeyWindow]) {
+            keyWindow = window;
+            break;
+        }
+    }
+    
+    return keyWindow;
 }
 
 
