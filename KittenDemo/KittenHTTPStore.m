@@ -139,7 +139,7 @@ static NSString* const KittenImageDataFetchTaskDescription = @"KittenImageDataFe
 
 #pragma mark - Dependency injection for session creation
 
-// This can be mimicked for testing purposes to supply a dummy session.
+// Function can be mimicked for testing purposes to supply a dummy session.
 
 NSURLSession* KittenStoreSessionFactory(NSString *apiKey)
 {
