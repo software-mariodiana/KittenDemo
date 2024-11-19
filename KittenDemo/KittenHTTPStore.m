@@ -6,6 +6,7 @@
 //
 
 #import "KittenHTTPStore.h"
+#import "KittenJSONParsing.h"
 
 // The key in the Info.plist file. The value needs to be in a file in the SRCROOT
 // directory, called "api.key". The contents of that file are loaded with a build
@@ -16,9 +17,6 @@ NSString* const KittenStoreFetchErrorNotification = @"KittenStoreFetchErrorNotif
 NSString* const MDXSessionInvalidatedWithErrorNotification = @"MDXSessionInvalidatedWithErrorNotification";
 
 NSString* const CatAPISearchURI = @"https://api.thecatapi.com/v1/images/search";
-
-// Example: [{"id":"9uk","url":"https://cdn2.thecatapi.com/images/9uk.jpg","width":1024,"height":683}]
-NSString* const CatAPISearchResponseJSONKey = @"url";
 
 #pragma mark - URLSessionDelegate handling Cat API
 
@@ -66,6 +64,20 @@ static NSString* const KittenImageDataFetchTaskDescription = @"KittenImageDataFe
 }
 
 
+- (NSURL *)extractImageURLFromData:(NSData *)data
+{
+    id parser = CreateKittenParser();
+    id kitten = [parser parseJSONData:data];
+    
+    if ([kitten error]) {
+        [self postError:[kitten error]];
+        return nil;
+    }
+    
+    return [kitten url];
+}
+
+
 - (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data
 {
     NSLog(@"Received data: %lu bytes", (unsigned long)[data length]);
@@ -83,27 +95,17 @@ static NSString* const KittenImageDataFetchTaskDescription = @"KittenImageDataFe
     
     if (![[task taskDescription] isEqualToString:KittenImageDataFetchTaskDescription]) {
         NSLog(@"## JSON task completed successfully.");
-        
-        NSError* error = nil;
-        id json = [NSJSONSerialization JSONObjectWithData:[self data]
-                                                        options:NSJSONReadingMutableContainers
-                                                          error:&error];
-        
-        if (error) {
-            [self postError:error];
-            return;
-        }
+        NSURL* url = [self extractImageURLFromData:[self data]];
         
         // Clear buffer of JSON data to prepare for image data.
         self.data = [NSMutableData data];
         
-        NSString* uri = [[json objectAtIndex:0] objectForKey:CatAPISearchResponseJSONKey];
-        NSURL* url = [NSURL URLWithString:uri];
-        
-        NSURLSessionDataTask* task = [session dataTaskWithURL:url];
-        [task setTaskDescription:KittenImageDataFetchTaskDescription];
-        
-        [task resume];
+        if (url) {
+            NSURLSessionDataTask* task = [session dataTaskWithURL:url];
+            [task setTaskDescription:KittenImageDataFetchTaskDescription];
+            
+            [task resume];
+        }
     }
     else {
         NSLog(@"## Image task completed successfully.");
