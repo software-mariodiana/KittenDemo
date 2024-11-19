@@ -7,7 +7,6 @@
 
 #import "ViewController.h"
 #import "KittenStoring.h"
-#import "KittenUpdating.h"
 
 @interface ViewController () <KittenUpdating>
 @property (nonatomic, weak) IBOutlet UIImageView* imageView;
