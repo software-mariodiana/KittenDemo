@@ -15,6 +15,7 @@
 		AC24E5082C5AC96000FC432D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = AC24E5072C5AC96000FC432D /* Base */; };
 		AC24E50B2C5AC96000FC432D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24E50A2C5AC96000FC432D /* main.m */; };
 		AC24E5172C5AD85500FC432D /* KittenHTTPStore.m in Sources */ = {isa = PBXBuildFile; fileRef = AC24E5162C5AD85500FC432D /* KittenHTTPStore.m */; };
+		AC2E0DF02CEF87AB00492A31 /* KittenStoreSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2E0DEF2CEF87AB00492A31 /* KittenStoreSessionDelegate.m */; };
 		AC85543D2CECCD8100FC18D8 /* KittenJSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AC85543C2CECCD8100FC18D8 /* KittenJSONParser.m */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,8 @@
 		AC24E50A2C5AC96000FC432D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AC24E5152C5AD85500FC432D /* KittenHTTPStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KittenHTTPStore.h; sourceTree = "<group>"; };
 		AC24E5162C5AD85500FC432D /* KittenHTTPStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KittenHTTPStore.m; sourceTree = "<group>"; };
+		AC2E0DEE2CEF87AB00492A31 /* KittenStoreSessionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KittenStoreSessionDelegate.h; sourceTree = "<group>"; };
+		AC2E0DEF2CEF87AB00492A31 /* KittenStoreSessionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KittenStoreSessionDelegate.m; sourceTree = "<group>"; };
 		AC803A642CB362A700EA7CAB /* KittenUpdating.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KittenUpdating.h; sourceTree = "<group>"; };
 		AC85543A2CECCD1F00FC18D8 /* KittenJSONParsing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KittenJSONParsing.h; sourceTree = "<group>"; };
 		AC85543B2CECCD8100FC18D8 /* KittenJSONParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KittenJSONParser.h; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 				AC85543C2CECCD8100FC18D8 /* KittenJSONParser.m */,
 				AC24E5152C5AD85500FC432D /* KittenHTTPStore.h */,
 				AC24E5162C5AD85500FC432D /* KittenHTTPStore.m */,
+				AC2E0DEE2CEF87AB00492A31 /* KittenStoreSessionDelegate.h */,
+				AC2E0DEF2CEF87AB00492A31 /* KittenStoreSessionDelegate.m */,
 			);
 			name = Store;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC24E5002C5AC95F00FC432D /* ViewController.m in Sources */,
+				AC2E0DF02CEF87AB00492A31 /* KittenStoreSessionDelegate.m in Sources */,
 				AC24E4FA2C5AC95F00FC432D /* AppDelegate.m in Sources */,
 				AC24E50B2C5AC96000FC432D /* main.m in Sources */,
 				AC85543D2CECCD8100FC18D8 /* KittenJSONParser.m in Sources */,

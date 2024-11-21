@@ -9,6 +9,7 @@
 #import "KittenUpdating.h"
 
 extern NSString* const KittenStoreFetchErrorNotification;
+extern NSString* const MDXSessionInvalidatedWithErrorNotification;
 
 @protocol KittenStoring <NSObject>
 - (void)fetchImageWithUpdater:(id<KittenUpdating>)updater;
